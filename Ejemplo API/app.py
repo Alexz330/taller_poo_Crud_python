@@ -44,6 +44,20 @@ def modificarMascota():
      mascotas[posicion]=mascota
      return "mascota modfiicada"
 
+@app.route("/modificarAlumno",methods=['PUT'])
+def modificarAlumno():
+    alumno=request.json
+    print(alumno)
+    
+    for tempA in alumnos:
+        print(tempA)
+        if tempA["carnet"]==alumno["carnet"]:
+            tempA["nombre"]=alumno["nombre"]
+            print(tempA)            
+    
+    return "Alumno modfiicada"
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
